@@ -1,0 +1,390 @@
+{
+  "communities": {
+    "0": [
+      "eslint",
+      "eslint_config_next",
+      "eslint_eslintrc",
+      "package_devdependencies",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_next",
+      "package_devdependencies_eslint_eslintrc",
+      "package_devdependencies_prisma",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tailwindcss_postcss",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "prisma",
+      "tailwindcss",
+      "tailwindcss_postcss",
+      "types_node",
+      "types_react",
+      "types_react_dom",
+      "typescript"
+    ],
+    "1": [
+      "heroicons_react",
+      "hookform_resolvers",
+      "nanoid",
+      "next",
+      "package_dependencies",
+      "package_dependencies_heroicons_react",
+      "package_dependencies_hookform_resolvers",
+      "package_dependencies_nanoid",
+      "package_dependencies_next",
+      "package_dependencies_prisma_client",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_react_hook_form",
+      "package_dependencies_zca_js",
+      "package_dependencies_zod",
+      "prisma_client",
+      "react",
+      "react_dom",
+      "react_hook_form",
+      "zca_js",
+      "zod"
+    ],
+    "2": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_esnext",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target"
+    ],
+    "3": [
+      "app_api_orders_create_route",
+      "app_api_orders_create_route_post",
+      "app_api_orders_create_route_schema",
+      "app_api_orders_status_route",
+      "app_api_orders_status_route_dynamic",
+      "app_api_orders_status_route_get",
+      "lib_orders",
+      "lib_orders_createorder",
+      "lib_orders_generateordercode",
+      "lib_orders_getorder",
+      "lib_prisma",
+      "lib_prisma_prisma",
+      "lib_prisma_prismaclientsingleton",
+      "lib_sepay",
+      "lib_sepay_buildvietqrurl",
+      "lib_sepay_getpaymentinfo",
+      "lib_sepay_getsepaybankaccounts",
+      "lib_sepay_sepaybankaccount"
+    ],
+    "4": [
+      "components_checkout_ordermodal",
+      "components_checkout_ordermodal_props",
+      "components_checkout_step1_customerform_step1_customerform",
+      "components_checkout_step2_payment",
+      "components_checkout_step2_payment_props",
+      "components_checkout_step2_payment_step2_payment",
+      "components_checkout_step3_success",
+      "components_checkout_step3_success_props",
+      "components_checkout_step3_success_step3_success",
+      "components_ui_button",
+      "components_ui_button_button",
+      "components_ui_button_buttonprops",
+      "lib_types",
+      "lib_types_createorderresponse",
+      "lib_types_customerinfo",
+      "lib_types_paymentinfo",
+      "lib_types_pricingbreakdown",
+      "lib_types_productselection"
+    ],
+    "5": [
+      "app_page",
+      "app_page_home",
+      "components_layout_footer",
+      "components_layout_footer_footer",
+      "components_layout_header",
+      "components_layout_header_header",
+      "components_product_lightbox",
+      "components_product_lightbox_lightbox",
+      "components_product_lightbox_props",
+      "components_product_productdescription",
+      "components_product_productdescription_productdescription",
+      "components_product_productgallery",
+      "components_product_productgallery_images",
+      "components_product_productgallery_productgallery",
+      "components_product_productoptions_productoptions"
+    ],
+    "6": [
+      "components_checkout_ordermodal_ordermodal",
+      "components_product_colorpickergroup",
+      "components_product_colorpickergroup_colorpickergroup",
+      "components_product_colorpickergroup_preset_colors",
+      "components_product_colorpickergroup_props",
+      "components_product_customtextinput_customtextinput",
+      "components_product_pricedisplay",
+      "components_product_pricedisplay_pricedisplay",
+      "components_product_pricedisplay_props",
+      "components_product_productoptions",
+      "components_ui_segmentedcontrol",
+      "components_ui_segmentedcontrol_segmentedcontrol",
+      "components_ui_segmentedcontrol_segmentedcontrolprops",
+      "components_ui_skeleton",
+      "components_ui_skeleton_skeleton"
+    ],
+    "7": [
+      "app_api_sepay_webhook_route",
+      "app_api_sepay_webhook_route_post",
+      "lib_orders_findorderbyordercode",
+      "lib_orders_updateorderstatus",
+      "lib_sepay_verifywebhookapikey",
+      "lib_types_orderrecord",
+      "lib_zalo",
+      "lib_zalo_buildordermessage",
+      "lib_zalo_notifycustomer",
+      "lib_zalo_notifystoreowner",
+      "lib_zalo_sendzalotoadmin"
+    ],
+    "8": [
+      "components_checkout_step1_customerform",
+      "components_checkout_step1_customerform_formdata",
+      "components_checkout_step1_customerform_props",
+      "components_checkout_step1_customerform_schema",
+      "components_product_customtextinput",
+      "components_product_customtextinput_props",
+      "components_ui_input",
+      "components_ui_input_input",
+      "components_ui_input_inputprops",
+      "components_ui_label",
+      "components_ui_label_label"
+    ],
+    "9": [
+      "app_api_calculate_price_route",
+      "app_api_calculate_price_route_post",
+      "app_api_calculate_price_route_schema",
+      "lib_pricing",
+      "lib_pricing_base_price",
+      "lib_pricing_calculatetextaddon",
+      "lib_pricing_calculatetotal",
+      "lib_pricing_getpricingbreakdown",
+      "lib_pricing_max_chars",
+      "lib_pricing_pricing_config"
+    ],
+    "10": [
+      "package",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_start",
+      "package_version"
+    ],
+    "11": [
+      "ref_next_dev_types_ts",
+      "ref_next_env_d_ts",
+      "ref_next_types_ts",
+      "ref_node_modules",
+      "ref_ts",
+      "ref_tsx",
+      "tsconfig",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "12": [
+      "eslint_config",
+      "eslint_config_compat",
+      "eslint_config_dirname",
+      "eslint_config_eslintconfig",
+      "eslint_config_filename"
+    ],
+    "13": [
+      "app_layout",
+      "app_layout_inter",
+      "app_layout_metadata",
+      "app_layout_rootlayout"
+    ],
+    "14": [
+      "next_config",
+      "next_config_nextconfig"
+    ],
+    "15": [
+      "postcss_config",
+      "postcss_config_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.09523809523809523,
+    "1": 0.09523809523809523,
+    "2": 0.10526315789473684,
+    "3": 0.17647058823529413,
+    "4": 0.16993464052287582,
+    "5": 0.18095238095238095,
+    "6": 0.17142857142857143,
+    "7": 0.3090909090909091,
+    "8": 0.2727272727272727,
+    "9": 0.3111111111111111,
+    "10": 0.2222222222222222,
+    "11": 0.2222222222222222,
+    "12": 0.4,
+    "13": 0.5,
+    "14": 1.0,
+    "15": 1.0
+  },
+  "gods": [
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "lib_pricing_getpricingbreakdown",
+      "label": "getPricingBreakdown()",
+      "degree": 7
+    },
+    {
+      "id": "app_api_sepay_webhook_route_post",
+      "label": "POST()",
+      "degree": 6
+    },
+    {
+      "id": "tsconfig_include",
+      "label": "include",
+      "degree": 6
+    },
+    {
+      "id": "lib_types_pricingbreakdown",
+      "label": "PricingBreakdown",
+      "degree": 5
+    },
+    {
+      "id": "lib_sepay_getpaymentinfo",
+      "label": "getPaymentInfo()",
+      "degree": 5
+    },
+    {
+      "id": "components_ui_button_button",
+      "label": "Button()",
+      "degree": 5
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 5
+    },
+    {
+      "id": "app_api_orders_create_route_post",
+      "label": "POST()",
+      "degree": 4
+    },
+    {
+      "id": "lib_orders_createorder",
+      "label": "createOrder()",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "POST()",
+      "target": "getPricingBreakdown()",
+      "source_files": [
+        "app/api/orders/create/route.ts",
+        "lib/pricing.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "POST()",
+      "target": "getPricingBreakdown()",
+      "source_files": [
+        "app/api/calculate-price/route.ts",
+        "lib/pricing.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; peripheral node `POST()` unexpectedly reaches hub `getPricingBreakdown()`"
+    },
+    {
+      "source": "Props",
+      "target": "PricingBreakdown",
+      "source_files": [
+        "components/checkout/OrderModal.tsx",
+        "lib/types.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "Props",
+      "target": "ProductSelection",
+      "source_files": [
+        "components/checkout/OrderModal.tsx",
+        "lib/types.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "POST()",
+      "target": "createOrder()",
+      "source_files": [
+        "app/api/orders/create/route.ts",
+        "lib/orders.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `devDependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.044) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `dependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.044) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `PricingBreakdown` connect `OrderModal.tsx` to `pricing.ts`, `ProductOptions.tsx`?",
+      "why": "High betweenness centrality (0.027) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `SePayBankAccount`, `Props`, `Props` to the rest of the system?",
+      "why": "81 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `devDependencies` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `dependencies` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `compilerOptions` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

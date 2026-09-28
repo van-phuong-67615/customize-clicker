@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Order {
+  id              String        @id @default(cuid())
+  orderCode       String        @unique          // "DH123456" — nội dung CK
+  customerName    String
+  customerPhone   String
+  customerAddress String                         // "city / district / address" đã nối
+  productOptions  Json                           // { customText, colorMode, colors }
+  totalPrice      Int                            // VND, server-computed
+  paymentStatus   PaymentStatus @default(PENDING)
+  paymentMethod   PaymentMethod
+  sePayTxId       String?                        // SePay transaction ID từ webhook
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([customerPhone, paymentMethod])
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+}
+
+enum PaymentMethod {
+  COD
+  QR_SEPAY
+}
