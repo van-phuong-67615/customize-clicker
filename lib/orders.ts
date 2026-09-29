@@ -5,7 +5,7 @@ export const MAX_COD_ORDERS_PER_PHONE = 5;
 
 export class CodOrderLimitError extends Error {
   constructor() {
-    super('COD order limit reached');
+    super("COD order limit reached");
   }
 }
 
@@ -27,7 +27,7 @@ export function generateOrderCode(): string {
 
 export async function createOrder(data: CreateOrderData): Promise<Order> {
   const orderCode = generateOrderCode();
-  
+
   return await prisma.order.create({
     data: {
       orderCode,
@@ -36,38 +36,53 @@ export async function createOrder(data: CreateOrderData): Promise<Order> {
   });
 }
 
-export async function createCodOrderWithinLimit(data: CreateOrderData): Promise<Order> {
+export async function createCodOrderWithinLimit(
+  data: CreateOrderData,
+): Promise<Order> {
   for (let attempt = 0; attempt < 3; attempt += 1) {
     try {
-      return await prisma.$transaction(async (transaction) => {
-        const existingCodOrders = await transaction.order.count({
-          where: {
-            customerPhone: data.customerPhone,
-            paymentMethod: PaymentMethod.COD,
-          },
-        });
+      return await prisma.$transaction(
+        async (transaction) => {
+          const existingCodOrders = await transaction.order.count({
+            where: {
+              customerPhone: data.customerPhone,
+              paymentMethod: PaymentMethod.COD,
+            },
+          });
 
-        if (existingCodOrders >= MAX_COD_ORDERS_PER_PHONE) {
-          throw new CodOrderLimitError();
-        }
+          if (existingCodOrders >= MAX_COD_ORDERS_PER_PHONE) {
+            throw new CodOrderLimitError();
+          }
 
-        return transaction.order.create({
-          data: {
-            orderCode: generateOrderCode(),
-            ...data,
-          },
-        });
-      }, {
-        isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
-      });
+          return transaction.order.create({
+            data: {
+              orderCode: generateOrderCode(),
+              ...data,
+            },
+          });
+        },
+        {
+          // Sửa mức cách ly phù hợp với Connection Pooler trên Serverless
+          isolationLevel: Prisma.TransactionIsolationLevel.ReadCommitted,
+          // Tăng thời gian chờ xin connection lên 10 giây (Tránh lỗi P2028)
+          maxWait: 10000,
+          // Tăng thời gian chạy tối đa của transaction lên 15 giây
+          timeout: 15000,
+        },
+      );
     } catch (error) {
-      if (error instanceof CodOrderLimitError || !(error instanceof Prisma.PrismaClientKnownRequestError) || error.code !== 'P2034') {
+      // Bổ sung bắt cả lỗi P2034 (Write conflict) và P2028 (Timeout) để vòng lặp for retry lại
+      if (
+        error instanceof CodOrderLimitError ||
+        !(error instanceof Prisma.PrismaClientKnownRequestError) ||
+        (error.code !== "P2034" && error.code !== "P2028")
+      ) {
         throw error;
       }
     }
   }
 
-  throw new Error('Unable to create COD order due to concurrent requests');
+  throw new Error("Unable to create COD order due to concurrent requests");
 }
 
 export async function getOrder(id: string): Promise<Order | null> {
@@ -76,13 +91,19 @@ export async function getOrder(id: string): Promise<Order | null> {
   });
 }
 
-export async function findOrderByOrderCode(orderCode: string): Promise<Order | null> {
+export async function findOrderByOrderCode(
+  orderCode: string,
+): Promise<Order | null> {
   return await prisma.order.findUnique({
     where: { orderCode },
   });
 }
 
-export async function updateOrderStatus(id: string, status: PaymentStatus, sePayTxId?: string): Promise<Order> {
+export async function updateOrderStatus(
+  id: string,
+  status: PaymentStatus,
+  sePayTxId?: string,
+): Promise<Order> {
   return await prisma.order.update({
     where: { id },
     data: {

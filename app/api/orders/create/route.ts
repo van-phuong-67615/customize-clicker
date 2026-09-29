@@ -1,11 +1,21 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { CodOrderLimitError, createCodOrderWithinLimit, createOrder } from "@/lib/orders";
+import {
+  CodOrderLimitError,
+  createCodOrderWithinLimit,
+  createOrder,
+} from "@/lib/orders";
 import { getPricingBreakdown } from "@/lib/pricing";
 import { getPaymentInfo } from "@/lib/sepay";
 import { PaymentStatus, PaymentMethod } from "@prisma/client";
-import { customText, hexColor, plainText, vietnamesePhoneNumber } from "@/lib/input-security";
+import {
+  customText,
+  hexColor,
+  plainText,
+  vietnamesePhoneNumber,
+} from "@/lib/input-security";
 import { buildOrderMessage, sendTelegramToAdmin } from "@/lib/telegram";
+import { waitUntil } from "@vercel/functions";
 
 const schema = z.object({
   customer: z.object({
@@ -71,15 +81,17 @@ export async function POST(request: Request) {
 
     let order;
     try {
-      order = paymentMethod === PaymentMethod.COD
-        ? await createCodOrderWithinLimit(orderData)
-        : await createOrder(orderData);
+      order =
+        paymentMethod === PaymentMethod.COD
+          ? await createCodOrderWithinLimit(orderData)
+          : await createOrder(orderData);
     } catch (error) {
       if (error instanceof CodOrderLimitError) {
         return NextResponse.json(
           {
             error: "COD_ORDER_LIMIT_REACHED",
-            detail: "Bạn đã đặt quá giới hạn đơn COD. Vui lòng liên hệ admin để được hỗ trợ.",
+            detail:
+              "Bạn đã đặt quá giới hạn đơn COD. Vui lòng liên hệ admin để được hỗ trợ.",
           },
           { status: 429 },
         );
@@ -105,7 +117,8 @@ export async function POST(request: Request) {
     } else {
       // Async notify without blocking response
       const message = buildOrderMessage(order);
-      sendTelegramToAdmin(message).catch(console.error);
+      // Báo cho Vercel giữ Serverless Instance tiếp tục chạy cho đến khi sendTelegramToAdmin hoàn thành
+      waitUntil(sendTelegramToAdmin(message).catch(console.error));
     }
 
     return NextResponse.json(
