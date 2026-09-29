@@ -5,13 +5,16 @@ import { sendTelegramToAdmin, buildOrderMessage } from "@/lib/telegram";
 import { PaymentStatus } from "@prisma/client";
 import { z } from "zod";
 import { plainText } from "@/lib/input-security";
+import { waitUntil } from "@vercel/functions";
 
-const webhookSchema = z.object({
-  transferType: z.string(),
-  code: plainText(64).optional(),
-  transferAmount: z.coerce.number().nonnegative(),
-  id: z.union([z.string(), z.number()]),
-}).passthrough();
+const webhookSchema = z
+  .object({
+    transferType: z.string(),
+    code: plainText(64).optional(),
+    transferAmount: z.coerce.number().nonnegative(),
+    id: z.union([z.string(), z.number()]),
+  })
+  .passthrough();
 
 export async function POST(request: Request) {
   try {
@@ -25,7 +28,10 @@ export async function POST(request: Request) {
     const payloadResult = webhookSchema.safeParse(await request.json());
 
     if (!payloadResult.success) {
-      return NextResponse.json({ error: "Invalid webhook payload" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid webhook payload" },
+        { status: 400 },
+      );
     }
 
     const payload = payloadResult.data;
@@ -68,7 +74,8 @@ export async function POST(request: Request) {
 
     // Async notify without blocking response
     const message = buildOrderMessage(order);
-    sendTelegramToAdmin(message).catch(console.error);
+    // Báo cho Vercel giữ Serverless Instance tiếp tục chạy cho đến khi sendTelegramToAdmin hoàn thành
+    waitUntil(sendTelegramToAdmin(message).catch(console.error));
 
     return NextResponse.json({ received: true });
   } catch (error) {
