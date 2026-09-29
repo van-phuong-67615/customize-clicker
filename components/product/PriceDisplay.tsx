@@ -9,7 +9,7 @@ interface Props {
 
 export function PriceDisplay({ price, loading }: Props) {
   return (
-    <div className="flex flex-wrap items-baseline gap-3">
+    <div className="md:flex flex-wrap items-baseline gap-3">
       {loading ? (
         <Skeleton className="h-8 w-24" />
       ) : (
@@ -18,9 +18,9 @@ export function PriceDisplay({ price, loading }: Props) {
         </span>
       )}
       <span className="text-sm text-gray-500">(Tùy số ký tự: 0đ - 100.000đ)</span>
-      <span className="text-sm font-semibold text-green-600 bg-green-50 px-2 py-0.5 rounded border border-green-200 ml-auto sm:ml-0">
+      <div className="text-sm font-semibold text-green-600 bg-green-50 px-2 py-0.5 rounded border border-green-200 ml-auto sm:ml-0">
         ✨ Free ship nội thành Đà Nẵng
-      </span>
+      </div>
     </div>
   );
 }

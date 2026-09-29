@@ -21,9 +21,9 @@ export function CustomTextInput({ value, onChange, maxLength }: Props) {
 
   return (
     <div className="space-y-2">
-      <div className="flex justify-between items-end">
+      <div className="md:flex justify-between items-end">
         <Label htmlFor="customText">Nhập Tên / Ký Tự Cần Ghép (Custom Theo Tên)</Label>
-        <span className="text-xs text-gray-500">Tối đa {maxLength} ký tự</span>
+        <div className="text-xs text-gray-500">Tối đa {maxLength} ký tự</div>
       </div>
       <Input
         id="customText"

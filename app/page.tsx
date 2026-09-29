@@ -20,7 +20,7 @@ export default function Home() {
           {/* Right Column - Product Info & Options */}
           <div className="lg:col-span-7">
             <div className="mb-6">
-              <div className="flex justify-between items-center mb-2">
+              <div className="md:flex justify-between items-center mb-2">
                 <span className="text-sm text-gray-500 uppercase tracking-wide">SKU: CLK-NAME-01</span>
                 <span className="text-sm text-green-600 flex items-center font-medium">
                   <span className="w-2 h-2 rounded-full bg-green-500 mr-2"></span>

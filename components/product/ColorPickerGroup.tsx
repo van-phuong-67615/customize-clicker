@@ -42,10 +42,10 @@ export function ColorPickerGroup({ colors, onChange, mode }: Props) {
   return (
     <div className="space-y-4">
       {currentColors.map((color, index) => (
-        <div key={index} className="flex items-center space-x-2">
-          <span className="text-sm text-gray-700 min-w-[120px]">
+        <div key={index} className="md:flex items-center space-x-2">
+          <div className="text-sm text-gray-700 min-w-30 mb-2">
             {mode === "dual" ? `Màu ${index + 1}` : "MÀU CHỦ ĐẠO"}
-          </span>
+          </div>
           <div className="flex space-x-2 items-center flex-wrap gap-y-2">
             {PRESET_COLORS.map((preset) => (
               <button
@@ -64,7 +64,7 @@ export function ColorPickerGroup({ colors, onChange, mode }: Props) {
               />
             ))}
             |
-            <div className="relative flex items-center ml-2">
+            <div className="relative flex items-center md:ml-2">
               <input
                 type="color"
                 value={color}
@@ -84,7 +84,9 @@ export function ColorPickerGroup({ colors, onChange, mode }: Props) {
               <span className="ml-2 text-xs text-gray-500 uppercase">
                 {color}
               </span>
-              <span className="ml-2 text-xs text-gray-500">{"< nhấn ô này để custom màu tùy ý bạn"}</span>
+              <span className="ml-2 text-xs text-gray-500 max-w-32.5 md:max-w-75">
+                {"< nhấn ô này để custom màu tùy ý bạn"}
+              </span>
             </div>
           </div>
         </div>
